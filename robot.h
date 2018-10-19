@@ -1,11 +1,13 @@
 //header file
 //function declarations
 
-#include <iostream>
-#include <string>
-
+//include guard
 #ifndef ROBOT_H
 #define ROBOT_H
+
+//include dependencies
+#include <iostream>
+#include <string>
 
 class robot {
 //methods: class member functions
@@ -41,4 +43,4 @@ private:
 	char robot_grade;
 };
 
-#endif ROBOT_H
+#endif // ROBOT_H
