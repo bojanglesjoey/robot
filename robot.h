@@ -11,6 +11,7 @@
 
 class robot {
 //methods: class member functions
+//public access modifier
 public:
 	//default constructor
 	robot();
@@ -36,6 +37,7 @@ public:
 	float calculate_utilization(int, int);
 
 //members: class member variables 
+//private access modifier
 private:
 	long robot_ID;
 	double robot_speed;
