@@ -1,5 +1,5 @@
 //class file
-//function definitions
+/*----function definitions----*/
 
 #include "robot.h"
 
@@ -58,10 +58,10 @@ void robot::set_grade(char grade) {
 	robot_grade = grade;
 }
 
-//calculate robot utilization method
-float robot::calculate_utilization(int number_of_robots, int system_capacity) {
+//calculate robot/fleet utilization method
+float robot::calculate_utilization(int number_of_robots, int system_capacity) const {
 	if (number_of_robots <= system_capacity) {
-		return (static_cast < float>(100));
+		return (static_cast <float>(100));
 	}
 
 	else {
