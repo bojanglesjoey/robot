@@ -69,11 +69,12 @@ int main() {
 	if (number_of_robots > system_capacity) {
 		std::cout << "Error: number of robots to deploy exceeds the maximum number of robots allowed in system." << std::endl;
 		//ends program (conditional statement must be in main function)
-		return 0;
+		return -1;
 	}
-	else if (number_of_robots == 0) {
+	//check to make sure robots are actually deployed
+	if (number_of_robots == 0) {
 		std::cout << "Error: no robots to be deployed." << std::endl;
-		return 0;
+		return -1;
 	}
 
 	//generate optimal number of robots for system
