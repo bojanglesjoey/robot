@@ -5,6 +5,7 @@
 #include <cstdlib>
 //Fnote: header file already includes iostream and string libraries
 #include "robot.h"
+#include <mission.h>
 
 //namespace: groups of identifiers
 //using namespace std;
@@ -44,7 +45,7 @@ float calculate_fleet_utilization(int, int);
 //@param2 int - optimal number of robots for system
 //@return - none
 
-int main() {
+int main(int argc, char* argv[]) {
 	int number_of_robots, optimal_fleet_size, system_capacity, minimum_fleet_size;
 	float fleet_utilization;
 
@@ -93,6 +94,32 @@ int main() {
 	std::cout << "The overall fleet utilization is: " << fleet_utilization << "%" << std::endl;
 	std::cout << std::endl;
 
+    	schedule mission_schedule;
+
+    /*mission_schedule.prepend_new_mission(3, 3.5);
+    mission_schedule.prepend_new_mission(2, 2.5);
+
+    mission_schedule.insert_new_mission(1, 1.5, 1);
+
+    mission_schedule.append_new_mission(4, 4.5);
+    mission_schedule.append_new_mission(6, 6.5);
+    mission_schedule.append_new_mission(7, 7.5);
+
+    mission_schedule.print_schedule();
+
+    mission_schedule.insert_new_mission(5, 5.5, 5);
+
+    mission_schedule.insert_new_mission(8, 8.5, 8);
+
+    mission_schedule.print_schedule();
+    mission_schedule.remove_completed_mission(1);
+    mission_schedule.remove_completed_mission(6);
+    mission_schedule.remove_completed_mission(3);
+
+    mission_schedule.print_schedule();
+
+    mission_schedule.remove_completed_mission(500);*/
+	
 	return 0;
 }
 
