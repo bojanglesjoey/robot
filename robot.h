@@ -1,17 +1,21 @@
+/*
+	File: robot.h
+
+	Author: Joey Yang
+*/
+
 //header file
 /*----function declarations (prototypes)----*/
 
-//include guard
+//guard
 #ifndef ROBOT_H
 #define ROBOT_H
 
-//include dependencies
-#include <iostream>
 #include <string>
 
 class robot {
-//methods: class member functions
-//public access modifier
+	//methods: class member functions
+	//public access modifier
 public:
 	//default constructor
 	robot();
@@ -65,10 +69,10 @@ public:
 	//@return - none
 
 	float calculate_robot_utilization(int, int) const;
-	//calculates utilization of robot
-	//@param1 int - number of robots deployed
-	//@param2 int - optimal number of robots for system
-	//@return float - robot utilization
+	//calculates utilization of robot and effectively the entire fleet
+	//@param1 int - number of robots in system
+	//@param2 int - maximum number of robots allowed in system
+	//@return float - robot/fleet utilization
 
 //members: class member variables 
 //private access modifier
