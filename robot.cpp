@@ -1,8 +1,12 @@
+/*
+	File: robot.cpp
+
+	Author: Joey Yang
+*/
+
 //class file
 /*----function definitions----*/
-#include <iostream>
-#include <string>
-//note: header file already includes iostream and string libraries
+
 #include "robot.h"
 
 //default constructor
@@ -60,13 +64,13 @@ void robot::set_grade(char grade) {
 	robot_grade = grade;
 }
 
-//calculate robot utilization method
-float robot::calculate_robot_utilization(int number_of_robots, int optimal_fleet_size) const {
-	if (number_of_robots <= optimal_fleet_size) {
-		return static_cast<float>(100);
+//calculate robot/fleet utilization method
+float robot::calculate_robot_utilization(int number_of_robots, int system_capacity) const {
+	if (number_of_robots <= system_capacity) {
+		return (static_cast <float>(100));
 	}
 
 	else {
-		return static_cast<float>(optimal_fleet_size) / static_cast<float>(number_of_robots) * 100;
+		return (static_cast<float>(system_capacity) / static_cast<float>(number_of_robots) * 100);
 	}
 }
