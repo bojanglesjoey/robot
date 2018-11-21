@@ -1,14 +1,16 @@
-#include <iostream>
-#include <string>
 #include <vector>
 #include <ctime>
-#include <cstdlib>
+
 //Fnote: header file already includes iostream and string libraries
 #include "robot.h"
-#include <mission.h>
+#include "mission_scheduler.h"
 
 //namespace: groups of identifiers
 //using namespace std;
+
+//mission log file paths
+const std::string missions_inpath = "C:/Users/jyang/Documents/missions.csv";
+const std::string missions_outpath = " ";
 
 /*----function declarations (prototypes)----*/
 
@@ -46,6 +48,15 @@ float calculate_fleet_utilization(int, int);
 //@return - none
 
 int main(int argc, char* argv[]) {
+
+	schedule mission_schedule;
+
+	std::ifstream missions_infile(missions_inpath);
+
+	mission_schedule.load_missions(missions_infile);
+
+	mission_schedule.print_schedule();
+
 	int number_of_robots, optimal_fleet_size, system_capacity, minimum_fleet_size;
 	float fleet_utilization;
 
@@ -58,9 +69,9 @@ int main(int argc, char* argv[]) {
 	minimum_fleet_size = 1;
 
 	//seed the random number generator based on current time
-	srand(time(NULL));
+	srand((unsigned int)time(NULL));
 
-	std::cout << "Enter maximum number of robots allowed in system : ";
+	std::cout << "Enter maximum number of robots allowed in system: ";
 	std::cin >> system_capacity;
 
 	std::cout << "Enter the number of robots to deploy: ";
@@ -94,32 +105,6 @@ int main(int argc, char* argv[]) {
 	std::cout << "The overall fleet utilization is: " << fleet_utilization << "%" << std::endl;
 	std::cout << std::endl;
 
-    	schedule mission_schedule;
-
-    /*mission_schedule.prepend_new_mission(3, 3.5);
-    mission_schedule.prepend_new_mission(2, 2.5);
-
-    mission_schedule.insert_new_mission(1, 1.5, 1);
-
-    mission_schedule.append_new_mission(4, 4.5);
-    mission_schedule.append_new_mission(6, 6.5);
-    mission_schedule.append_new_mission(7, 7.5);
-
-    mission_schedule.print_schedule();
-
-    mission_schedule.insert_new_mission(5, 5.5, 5);
-
-    mission_schedule.insert_new_mission(8, 8.5, 8);
-
-    mission_schedule.print_schedule();
-    mission_schedule.remove_completed_mission(1);
-    mission_schedule.remove_completed_mission(6);
-    mission_schedule.remove_completed_mission(3);
-
-    mission_schedule.print_schedule();
-
-    mission_schedule.remove_completed_mission(500);*/
-	
 	return 0;
 }
 
@@ -177,7 +162,7 @@ int calculate_optimal_fleet_size(int minimum_fleet_size, int system_capacity) {
 }
 
 float calculate_fleet_utilization(int number_of_robots, int optimal_fleet_size) {
-	float fleet_utilization; 
+	float fleet_utilization;
 
 	if (number_of_robots <= optimal_fleet_size) {
 		return fleet_utilization = 100;
