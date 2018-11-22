@@ -145,7 +145,7 @@ void schedule::print_schedule() const {
 	}
 }
 
-void schedule::load_missions(std::ifstream &missions_infile) {
+void schedule::load_missions(std::ifstream& missions_infile) {
 	if(!missions_infile.is_open()) {
 		std::cout << "Error: failed to open csv file containing missions to load." << std::endl;
 	}
@@ -158,10 +158,10 @@ void schedule::load_missions(std::ifstream &missions_infile) {
 			try {
 			    append_new_mission(stoi(field_ID), stod(field_distance));
             }
-            catch(const std::invalid_argument &ex) {
+            catch(const std::invalid_argument& ex) {
                 std::cout << "Error: the mission ID or mission distance is invalid and could not be converted into a number." << std::endl;
             }
-            catch(const std::out_of_range &ex) {
+            catch(const std::out_of_range& ex) {
                 std::cout << "Error: the mission ID or mission distance is out of range." << std::endl;
             }
 		}
