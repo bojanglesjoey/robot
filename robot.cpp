@@ -66,11 +66,11 @@ void robot::set_grade(char grade) {
 
 //calculate robot/fleet utilization method
 float robot::calculate_robot_utilization(int number_of_robots, int system_capacity) const {
-	if (number_of_robots <= system_capacity) {
-		return (static_cast <float>(100));
+	if(number_of_robots <= system_capacity) {
+		return(static_cast <float>(100));
 	}
 
 	else {
-		return (static_cast<float>(system_capacity) / static_cast<float>(number_of_robots) * 100);
+		return(static_cast<float>(system_capacity) / static_cast<float>(number_of_robots) * 100);
 	}
 }
