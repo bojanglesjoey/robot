@@ -21,7 +21,7 @@ public:
 	void insert_new_mission(const int ID, const double distance, int insert_position);
 	void remove_completed_mission(const int ID);
 	void print_schedule() const;
-	void load_missions(std::ifstream &missions_infile);
+	void load_missions(std::ifstream& missions_infile);
 	//void schedule_missions();
 	~schedule();
 
