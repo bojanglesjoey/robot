@@ -23,7 +23,7 @@ int schedule::get_schedule_size() const {
 		return 0;
 	}
 	else {
-		mission *current = head;
+		mission* current = head;
 		int queue_size = 0;
 		while(current != nullptr) {
 			current = current->next;
