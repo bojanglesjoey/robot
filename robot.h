@@ -5,7 +5,7 @@
 */
 
 //header file
-/*----function declarations (prototypes)----*/
+/*----function declarations(prototypes)----*/
 
 //guard
 #ifndef ROBOT_H
@@ -21,7 +21,7 @@ public:
 	robot();
 
 	//overload constructor
-	robot(long, double, std::string, char);
+	robot(long ID, double speed, std::string message, char grade);
 
 	//destructor
 	~robot();
@@ -48,33 +48,33 @@ public:
 	//@return char - grade of robot
 
 	/*----mutator functions----*/
-	void set_ID(long);
+	void set_ID(long ID);
 	//sets ID of robot
 	//@param long - ID of robot
 	//@return - none
 
-	void set_speed(double);
+	void set_speed(double speed);
 	//sets speed of robot
 	//@param double - speed of robot
 	//@return - none
 
-	void set_message(std::string);
+	void set_message(std::string message);
 	//sets message of robot
 	//@param string - message of robot
 	//@return - none
 
-	void set_grade(char);
+	void set_grade(char grade);
 	//sets grade of robot
 	//@param char - grade of robot
 	//@return - none
 
-	float calculate_robot_utilization(int, int) const;
+	float calculate_robot_utilization(int number_of_robots, int system_capacity) const;
 	//calculates utilization of robot and effectively the entire fleet
 	//@param1 int - number of robots in system
 	//@param2 int - maximum number of robots allowed in system
 	//@return float - robot/fleet utilization
 
-//members: class member variables 
+//members: class member variables
 //private access modifier
 private:
 	long robot_ID;
