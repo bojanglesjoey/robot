@@ -32,6 +32,7 @@ public:
 	void remove_completed_mission(const int ID);
 	void print_schedule() const;
 	void load_missions(std::ifstream& missions_infile);
+	void reverse_schedule();
 	//void schedule_missions();
 	
 
