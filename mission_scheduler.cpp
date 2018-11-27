@@ -16,15 +16,12 @@ schedule::schedule() {
 }
 
 /* rule of 3*/
-schedule::schedule(const schedule& other_schedule) {
-	if (other_schedule.head == nullptr) {
-		head == nullptr;
-	}
-}
 
-schedule& schedule::operator=(const schedule& other_schedule) {
-	return;
-}	
+//schedule::schedule(const schedule& other_schedule) {
+//}
+
+//schedule& schedule::operator=(const schedule& other_schedule) {
+//}	
 
 schedule::~schedule() {
 	mission* current = head;
@@ -57,7 +54,6 @@ int schedule::get_schedule_size() const {
 
 void schedule::append_new_mission(const int ID, const double distance) {
 	mission* current = new mission(ID, distance);
-
 	if (schedule_empty()) {
 		std::cout << "Adding first mission to empty mission schedule: " << "mission ID: " << current->ID << " & mission distance: " << current->distance << std::endl;
 		head = current;
@@ -72,7 +68,6 @@ void schedule::append_new_mission(const int ID, const double distance) {
 
 void schedule::prepend_new_mission(const int ID, const double distance) {
 	mission* current = new mission(ID, distance);
-
 	if (schedule_empty()) {
 		std::cout << "Adding first mission to empty mission schedule: " << "mission ID: " << current->ID << " & mission distance: " << current->distance << std::endl;
 		head = current;
@@ -189,3 +184,16 @@ void schedule::load_missions(std::ifstream& missions_infile) {
 		}
 	}
 }
+
+void schedule::reverse_schedule() {
+	if (head == tail) {
+		return;
+	}
+	mission* current = head;
+	head = current->next;
+	reverse_schedule();
+	tail->next = current;
+	current->next = nullptr;
+	tail = current;
+}
+
