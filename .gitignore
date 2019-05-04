@@ -1,5 +1,5 @@
 *.sln
 *.dll
-*.vcxproj
+*.vcxproj*
 Release/
 Debug/
