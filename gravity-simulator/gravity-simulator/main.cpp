@@ -3,11 +3,12 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
+	sf::RenderWindow window(sf::VideoMode(400, 400), "Window");
 	
-	celestial::Celestial celestial(sf::Vector2f(5.f,2.f), 2);
+	celestial::Celestial celestial(sf::Vector2f(10.f, 10.f), 30);
+	celestial.setFillColor(sf::Color::Green);
+	celestial.setOutlineThickness(10.f);
+	celestial.setOutlineColor(sf::Color(250, 150, 100));
 
 	while (window.isOpen())
 	{
@@ -19,7 +20,7 @@ int main()
 		}
 
 		window.clear();
-		window.draw(shape);
+		window.draw(celestial);
 		window.display();
 	}
 
