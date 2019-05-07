@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include <SFML/Graphics.hpp>
+#include "space.h"
 #include "celestial.h"
 
 int main()
@@ -20,6 +21,25 @@ int main()
 
 		while (window.pollEvent(event))
 		{
+			float spawn_x = sf::Mouse::Mouse::getPosition(window).x;
+			float spawn_y = sf::Mouse::Mouse::getPosition(window).y;
+
+			switch (event.type)
+			{
+			default:
+				break;
+
+			case sf::Event::Closed:
+				window.close();
+				break;
+
+			case sf::Event::MouseButtonReleased:
+				if (event.mouseButton.button == sf::Mouse::Left)
+				{
+					//spawn celestial at spawn_x, spawn_y
+				}
+
+			}
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
