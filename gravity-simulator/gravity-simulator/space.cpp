@@ -4,7 +4,7 @@ space::Space::Space()
 {
 }
 
-void space::Space::spawnCelestial()
+void applyGravity(std::vector<celestial::Celestial>& celestials)
 {
 
 }

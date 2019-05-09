@@ -10,7 +10,7 @@ class Space
 {
 public:
 	Space();
-	void spawnCelestial();
+	void applyGravity(std::vector<celestial::Celestial>& celestials);
 	virtual ~Space();
 };
 }

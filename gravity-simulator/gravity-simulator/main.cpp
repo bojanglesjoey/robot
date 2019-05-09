@@ -6,7 +6,7 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(400, 400), "Window");
+	sf::RenderWindow window(sf::VideoMode(800, 800), "The Universe");
 	sf::Clock clock;
 
 	std::vector<celestial::Celestial> celestials;
@@ -35,6 +35,7 @@ int main()
 				{
 					celestial::Celestial celestial(sf::Vector2f(5.f, 5.f), 100);
 					celestial.setFillColor(sf::Color::Green);
+					//currently does not draw to centre/origin of circle
 					celestial.setPosition(spawn_x, spawn_y);
 					celestials.push_back(celestial);
 				}
@@ -44,20 +45,19 @@ int main()
 				window.close();
 		}
 
-		/*
-		if (elapsed.asSeconds() > 1)
+		window.clear();
+
+		/*if (elapsed.asSeconds() > 1)
 		{
-			sf::Vector2f current_position = celestial.getPosition();
-			celestial.move(30.f, 30.f);
 			clock.restart();
 		}
 		*/
-		
-		window.clear();
+
 		for (auto c : celestials)
 		{
 			window.draw(c);
 		}
+
 		window.display();
 		
 	}
