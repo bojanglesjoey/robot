@@ -10,9 +10,9 @@ class Celestial : public sf::Shape
 public:
 	Celestial(sf::Vector2f radius, unsigned int point_count);
 
-	std::size_t getPointCount() const;
+	virtual std::size_t getPointCount() const;
 
-	sf::Vector2f getPoint(std::size_t index) const;
+	virtual sf::Vector2f getPoint(std::size_t index) const;
 
 	virtual ~Celestial();
 
