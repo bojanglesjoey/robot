@@ -9,15 +9,12 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(400, 400), "Window");
 	sf::Clock clock;
 
-	celestial::Celestial celestial(sf::Vector2f(25.f, 25.f), 100);
-	celestial.setFillColor(sf::Color::Green);
-	celestial.setPosition(200.f, 200.f);
+	std::vector<celestial::Celestial> celestials;
 
 	while (window.isOpen())
 	{
 		sf::Event event;
 		sf::Time elapsed = clock.getElapsedTime();
-		
 
 		while (window.pollEvent(event))
 		{
@@ -36,7 +33,10 @@ int main()
 			case sf::Event::MouseButtonReleased:
 				if (event.mouseButton.button == sf::Mouse::Left)
 				{
-					//spawn celestial at spawn_x, spawn_y
+					celestial::Celestial celestial(sf::Vector2f(5.f, 5.f), 100);
+					celestial.setFillColor(sf::Color::Green);
+					celestial.setPosition(spawn_x, spawn_y);
+					celestials.push_back(celestial);
 				}
 
 			}
@@ -44,16 +44,22 @@ int main()
 				window.close();
 		}
 
+		/*
 		if (elapsed.asSeconds() > 1)
 		{
 			sf::Vector2f current_position = celestial.getPosition();
 			celestial.move(30.f, 30.f);
 			clock.restart();
 		}
-
+		*/
+		
 		window.clear();
-		window.draw(celestial);
+		for (auto c : celestials)
+		{
+			window.draw(c);
+		}
 		window.display();
+		
 	}
 
 	return 0;

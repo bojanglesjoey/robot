@@ -5,11 +5,13 @@ celestial::Celestial::Celestial(sf::Vector2f radius, unsigned int point_count) :
 	update();
 }
 
+//overriding inherited function
 std::size_t celestial::Celestial::getPointCount() const
 {
 	return point_count_;
 }
 
+//overriding inherited function
 sf::Vector2f celestial::Celestial::getPoint(std::size_t index) const
 {
 	static const float pi = 3.141592654f;
