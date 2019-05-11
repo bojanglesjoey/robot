@@ -1,7 +1,18 @@
 #include "celestial.h"
 
-celestial::Celestial::Celestial(sf::Vector2f radius, unsigned int point_count) : radius_(radius), point_count_(point_count)
+celestial::Celestial::Celestial(const sf::Vector2f& radius, const unsigned int point_count) : radius_(radius), point_count_(point_count)
 {
+	update();
+}
+
+const sf::Vector2f& celestial::Celestial::getRadius() const
+{
+	return radius_;
+}
+
+void celestial::Celestial::setRadius(const sf::Vector2f& radius)
+{
+	radius_ = radius;
 	update();
 }
 

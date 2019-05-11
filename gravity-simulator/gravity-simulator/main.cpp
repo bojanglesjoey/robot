@@ -7,19 +7,21 @@
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 800), "The Universe");
-	sf::Clock clock;
-
-	std::vector<celestial::Celestial> celestials;
-
+	//sf::Clock clock;
+	space::Space space(window);
+	
 	while (window.isOpen())
 	{
 		sf::Event event;
-		sf::Time elapsed = clock.getElapsedTime();
+		//sf::Time elapsed = clock.getElapsedTime();
 
 		while (window.pollEvent(event))
 		{
-			float spawn_x = sf::Mouse::Mouse::getPosition(window).x;
-			float spawn_y = sf::Mouse::Mouse::getPosition(window).y;
+			sf::Vector2f spawn_position;
+			spawn_position.x = sf::Mouse::Mouse::getPosition(window).x;
+			spawn_position.y = sf::Mouse::Mouse::getPosition(window).y;
+			sf::Vector2f radius(5.f, 5.f);
+			const unsigned int point_count = 100;
 
 			switch (event.type)
 			{
@@ -33,11 +35,9 @@ int main()
 			case sf::Event::MouseButtonReleased:
 				if (event.mouseButton.button == sf::Mouse::Left)
 				{
-					celestial::Celestial celestial(sf::Vector2f(5.f, 5.f), 100);
-					celestial.setFillColor(sf::Color::Green);
 					//currently does not draw to centre/origin of circle
-					celestial.setPosition(spawn_x, spawn_y);
-					celestials.push_back(celestial);
+					space.addCelestial(spawn_position, radius, point_count);
+					
 				}
 
 			}
@@ -47,16 +47,13 @@ int main()
 
 		window.clear();
 
+		space.spawnCelestials();
+
 		/*if (elapsed.asSeconds() > 1)
 		{
 			clock.restart();
 		}
 		*/
-
-		for (auto c : celestials)
-		{
-			window.draw(c);
-		}
 
 		window.display();
 		
