@@ -1,7 +1,6 @@
 #ifndef SPACE_H
 #define SPACE_H
 
-#include <SFML/Graphics.hpp>
 #include "celestial.h"
 
 namespace space
