@@ -5,7 +5,7 @@
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 800), "The Universe");
-	//sf::Clock clock;
+	sf::Clock clock;
 	space::Space space(window);
 	
 	//celestial default test values
@@ -16,8 +16,7 @@ int main()
 	while (window.isOpen())
 	{
 		sf::Event event;
-		//sf::Time elapsed = clock.getElapsedTime();
-
+		
 		while (window.pollEvent(event))
 		{
 			
@@ -45,15 +44,20 @@ int main()
 				window.close();
 		}
 
-		window.clear();
-
-		space.spawnCelestials();
+		sf::Time elapsed = clock.getElapsedTime();
+		std::cout << elapsed.asSeconds() << std::endl;
 
 		/*if (elapsed.asSeconds() > 1)
 		{
 			clock.restart();
 		}
 		*/
+
+		window.clear();
+
+		space.spawnCelestials();
+
+		
 
 		window.display();
 		
