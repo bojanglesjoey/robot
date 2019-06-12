@@ -8,7 +8,7 @@ namespace space
 class Space
 {
 public:
-	Space(sf::RenderWindow& window);
+	explicit Space(sf::RenderWindow& window);
 
 	void addCelestial(const sf::Vector2f& spawn_position, const sf::Vector2f& radius, const unsigned int point_count);
 

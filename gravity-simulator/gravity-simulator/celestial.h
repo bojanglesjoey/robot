@@ -8,7 +8,7 @@ namespace celestial
 class Celestial : public sf::Shape
 {
 public:
-	Celestial(const sf::Vector2f& radius, const unsigned int point_count);
+	explicit Celestial(const sf::Vector2f& radius, const unsigned int point_count);
 
 	const sf::Vector2f& getRadius() const;
 
